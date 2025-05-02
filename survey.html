@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Mussa njechelani, Creative Photoshop & A&B Scale Developer">
+    <meta name="keywords" content="portfolio, web development, design, Photoshop, developer">
+    <meta name="author" content="Mussa Njechelani">
+    <title>Client Survey | Mussa Njechelani</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-mode">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="images/njechelani logo 3.png" width="100" alt="">
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="survey.html">Survey</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="theme-btn">Dark Mode</button>
+            </div>
+        </header>
+        <br><br><br><br>
+        <!-- Same header as index.html -->
+    
+
+    <section id="survey">
+        <div class="container">
+            <h1>Client Survey</h1>
+            <form id="survey-form">
+                <fieldset>
+                    <legend><i class="fas fa-project-diagram"></i> Project Type</legend>
+                    <div class="radio-group">
+                        <input type="radio" id="website" name="project-type" value="website" required>
+                        <label for="website">Website</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="design" name="project-type" value="design">
+                        <label for="design">Graphic Design</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="ab-testing" name="project-type" value="ab-testing">
+                        <label for="ab-testing"> Responsive designing</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="other" name="project-type" value="other">
+                        <label for="other">Other</label>
+                        <input type="text" id="other-type" name="other-type" style="display: none;">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-cogs"></i> Features Needed</legend>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="responsive" name="features" value="responsive">
+                        <label for="responsive">Responsive web Design</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ecommerce" name="features" value="ecommerce">
+                        <label for="ecommerce">Good graphics designing</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="cms" name="features" value="cms">
+                        <label for="cms">E-comerce website with functionality</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="seo" name="features" value="seo">
+                        <label for="seo">Learning management system</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="analytics" name="features" value="analytics">
+                        <label for="analytics">Food ordering website</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="budget"><i class="fas fa-money-bill-wave"></i> Budget Range:</label>
+                    <select id="budget" name="budget" required>
+                        <option value="" disabled selected>Select your budget</option>
+                        <option value="500-2000">50k-100k</option>
+                        <option value="2000-5000">200-400k</option>
+                        <option value="5000-10000">600k-800k</option>
+                        <option value="10000+">10000k+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline"><i class="fas fa-calendar-alt"></i> Project Timeline:</label>
+                    <input type="date" id="timeline" name="timeline" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments"><i class="fas fa-comment"></i> Additional Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                    <div class="char-counter">0/500</div>
+                </div>
+
+                <button type="submit" class="btn">Submit Survey</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mussa njechelani. All rights reserved.</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        // Show/hide other project type field
+        document.querySelectorAll('input[name="project-type"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const otherField = document.getElementById('other-type');
+                otherField.style.display = this.value === 'other' ? 'block' : 'none';
+                if (this.value === 'other') {
+                    otherField.required = true;
+                } else {
+                    otherField.required = false;
+                }
+            });
+        });
+
+        // Character counter for comments
+        const commentsTextarea = document.getElementById('comments');
+        const charCounter = document.querySelector('.char-counter');
+        
+        commentsTextarea.addEventListener('input', function() {
+            const remaining = 500 - this.value.length;
+            charCounter.textContent = `${this.value.length}/500`;
+            
+            if (remaining < 0) {
+                charCounter.style.color = 'var(--highlight)';
+                this.value = this.value.substring(0, 500);
+            } else if (remaining < 50) {
+                charCounter.style.color = 'var(--accent-light)';
+            } else {
+                charCounter.style.color = 'inherit';
+            }
+        });
+
+        // Form submission
+        document.getElementById('survey-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate project type
+            if (!document.querySelector('input[name="project-type"]:checked')) {
+                alert('Please select a project type.');
+                return;
+            }
+            
+            // Validate budget
+            if (!document.getElementById('budget').value) {
+                alert('Please select a budget range.');
+                return;
+            }
+            
+            // Validate timeline
+            if (!document.getElementById('timeline').value) {
+                alert('Please select a project timeline.');
+                return;
+            }
+            
+            // If validation passes
+            alert('Thank you for completing the survey! Your responses have been recorded.');
+            this.reset();
+            charCounter.textContent = '0/500';
+            charCounter.style.color = 'inherit';
+        });
+    </script>
+</body>
+</html>
