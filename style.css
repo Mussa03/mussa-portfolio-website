@@ -833,7 +833,7 @@ body.light-mode #commentList li:before {
       }
       
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   /* Header container */
   .navbar {
     display: flex;
