@@ -833,3 +833,146 @@ body.light-mode #commentList li:before {
       }
       
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Mobile menu button */
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 1.8rem;
+    }
+    
+    /* Navigation links */
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 15px;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--dusty-grey);
+    }
+    
+    /* Theme toggle button */
+    .toggle-btn {
+        margin-top: 15px;
+        align-self: center;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 150px 5% 60px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content h1 {
+        font-size: 2rem;
+    }
+    
+    .content p {
+        font-size: 1rem;
+    }
+    
+    .profile-pic {
+        width: 200px;
+        margin-top: 30px;
+    }
+    
+    /* Adjust section padding */
+    section {
+        padding: 60px 0;
+    }
+    
+    /* Two and three column layouts */
+    .two-column, .three-column {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Project cards */
+    .project-card {
+        margin-bottom: 30px;
+    }
+    
+    /* Contact page */
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Logo size */
+    .logo img {
+        width: 40px;
+    }
+    
+    /* Specific styles for the layout shown in screenshot */
+    #branding h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    #main-nav {
+        width: 100%;
+    }
+    
+    #main-nav ul {
+        float: none;
+        display: block;
+        margin-top: 15px;
+    }
+    
+    #main-nav li {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .theme-btn {
+        float: none;
+        display: block;
+        margin: 15px 0 0 0;
+        width: 100%;
+    }
+}
+
+/* Very small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero {
+        padding: 120px 5% 40px;
+    }
+    
+    .profile-pic {
+        width: 150px;
+    }
+    
+    /* Adjust the greeting text to match screenshot */
+    .content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Ensure text doesn't get cut off */
+    .content p br {
+        display: none;
+    }
+}
