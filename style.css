@@ -833,3 +833,53 @@ body.light-mode #commentList li:before {
       }
       
 }
+@media (max-width: 768px) {
+  /* Header container */
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Push logo left and menu button right */
+    align-items: center;
+    padding: 15px 5%;
+    position: relative;
+  }
+
+  /* Centered navigation menu (hidden by default) */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--slate-grey);
+    display: none;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    padding: 15px 0;
+    text-align: center; /* Center text */
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Menu items */
+  .nav-links li {
+    width: 90%; /* Slightly less than full width */
+    padding: 12px 0;
+    border-bottom: 1px solid var(--dusty-grey);
+  }
+
+  /* Logo stays on left */
+  .logo {
+    margin-right: auto; /* Push to left */
+  }
+
+  /* Hamburger stays on right */
+  .mobile-menu-btn {
+    margin-left: auto; /* Push to right */
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--marigold);
+  }
+}
