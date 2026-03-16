@@ -39,25 +39,35 @@ function enableDarkMode() {
     document.body.classList.add('dark-mode');
     document.body.classList.remove('light-mode');
     localStorage.setItem('theme', 'dark');
-    document.getElementById('theme-toggle').textContent = 'Light Mode';
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+    }
 }
 
 function enableLightMode() {
     document.body.classList.add('light-mode');
     document.body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
-    document.getElementById('theme-toggle').textContent = 'Dark Mode';
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+    }
 }
 
 /* Event Listeners*/
 function setupEventListeners() {
     // Theme toggle
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', toggleTheme);
+    }
     
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-button');
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             document.getElementById('main-nav').classList.toggle('show');
         });
     }
@@ -67,9 +77,9 @@ function setupEventListeners() {
         const nav = document.getElementById('main-nav');
         const mobileBtn = document.getElementById('mobile-menu-button');
         
-        if (nav.classList.contains('show') && 
+        if (nav && nav.classList.contains('show') && 
             e.target !== mobileBtn && 
-            !mobileBtn.contains(e.target) && 
+            !mobileBtn?.contains(e.target) && 
             e.target !== nav && 
             !nav.contains(e.target)) {
             nav.classList.remove('show');
@@ -101,7 +111,7 @@ function updateFooterYear() {
     const yearElement = document.querySelector('footer p');
     if (yearElement) {
         const currentYear = new Date().getFullYear();
-        yearElement.textContent = yearElement.textContent.replace('2023', currentYear);
+        yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
     }
 }
 
@@ -133,13 +143,12 @@ function validateContactForm() {
             return;
         }
 
-        //phone validation
-            const phone = document.getElementById('phone').value;
-            if (phone && !/^\d{3}-\d{3}-\d{4}$/.test(phone)) {
-                alert('Please enter a valid phone number in the format 123-456-7890.');
-                return;
-            }
-             
+        // Phone validation
+        const phone = document.getElementById('phone').value;
+        if (phone && !/^\d{3}-\d{3}-\d{4}$/.test(phone)) {
+            alert('Please enter a valid phone number in the format 123-456-7890.');
+            return;
+        }
 
         // Email validation with regex
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -148,7 +157,7 @@ function validateContactForm() {
             return;
         }
         
-        // If validation passes, submit the form (in a real app, you would send to a server)
+        // If validation passes
         alert('Thank you for your message! I will get back to you soon.');
         form.reset();
     });
@@ -168,10 +177,7 @@ function handleSurveyForm() {
             return;
         }
         
-        // Additional validation can be added here
-        
         alert('Thank you for completing the survey! Your responses have been recorded.');
         form.reset();
     });
 }
-
