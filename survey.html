@@ -14,7 +14,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="njechelani logo 3.png" width="100" alt="">
+                <img src="njechelani logo 3.png" alt="Mussa Njechelani Logo">
             </div>
             <nav id="main-nav">
                 <ul>
@@ -29,7 +29,6 @@
             <button id="mobile-menu-button" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </header>
-    <br><br><br><br>
 
     <section id="survey">
         <div class="container">
@@ -126,59 +125,36 @@
             radio.addEventListener('change', function() {
                 const otherField = document.getElementById('other-type');
                 otherField.style.display = this.value === 'other' ? 'block' : 'none';
-                if (this.value === 'other') {
-                    otherField.required = true;
-                } else {
-                    otherField.required = false;
-                }
+                otherField.required = this.value === 'other';
             });
         });
 
-        // Character counter for comments
+        // Character counter
         const commentsTextarea = document.getElementById('comments');
         const charCounter = document.querySelector('.char-counter');
-        
         commentsTextarea.addEventListener('input', function() {
-            const remaining = 500 - this.value.length;
             charCounter.textContent = `${this.value.length}/500`;
-            
-            if (remaining < 0) {
-                charCounter.style.color = 'var(--highlight)';
-                this.value = this.value.substring(0, 500);
-            } else if (remaining < 50) {
-                charCounter.style.color = 'var(--accent-light)';
-            } else {
-                charCounter.style.color = 'inherit';
-            }
+            if (this.value.length > 500) this.value = this.value.substring(0, 500);
         });
 
         // Form submission
         document.getElementById('survey-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Validate project type
             if (!document.querySelector('input[name="project-type"]:checked')) {
                 alert('Please select a project type.');
                 return;
             }
-            
-            // Validate budget
             if (!document.getElementById('budget').value) {
                 alert('Please select a budget range.');
                 return;
             }
-            
-            // Validate timeline
             if (!document.getElementById('timeline').value) {
                 alert('Please select a project timeline.');
                 return;
             }
-            
-            // If validation passes
             alert('Thank you for completing the survey! Your responses have been recorded.');
             this.reset();
             charCounter.textContent = '0/500';
-            charCounter.style.color = 'inherit';
         });
     </script>
 </body>
