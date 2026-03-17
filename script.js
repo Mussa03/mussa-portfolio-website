@@ -31,7 +31,7 @@ function enableDarkMode() {
     localStorage.setItem('theme', 'dark');
     const toggleBtn = document.getElementById('theme-toggle');
     if (toggleBtn) {
-        toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // sun icon for dark mode (to switch to light)
     }
 }
 
@@ -41,7 +41,7 @@ function enableLightMode() {
     localStorage.setItem('theme', 'light');
     const toggleBtn = document.getElementById('theme-toggle');
     if (toggleBtn) {
-        toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // moon icon for light mode (to switch to dark)
     }
 }
 
