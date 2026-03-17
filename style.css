@@ -1,4 +1,4 @@
-/* styles.css - Professional Portfolio with Enhanced Animations */
+/* styles.css - Professional Portfolio with Modern Font & Animations */
 
 :root {
     /* Dark Mode Colors */
@@ -28,7 +28,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--dark-void);
     color: var(--marigold);
     line-height: 1.6;
@@ -84,7 +84,7 @@ body.light-mode::before {
 header {
     background: var(--light-bg);
     color: var(--light-text);
-    padding: 10px 0; /* smaller header */
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -110,7 +110,7 @@ header .container {
 }
 
 .logo img {
-    width: 60px; /* smaller logo */
+    width: 60px;
     height: auto;
     display: block;
 }
@@ -210,12 +210,18 @@ section {
 h1, h2, h3 {
     margin-bottom: 30px;
     color: var(--liquid-lova);
+    font-weight: 600; /* bolder headings */
 }
 
 body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3 {
     color: var(--light-highlight);
+}
+
+p {
+    font-weight: 300; /* lighter body text */
+    line-height: 1.8;
 }
 
 /* Hero Section */
@@ -228,7 +234,7 @@ body.light-mode h3 {
 }
 
 #hero img {
-    max-width: 300px; /* reduced size */
+    max-width: 300px;
     width: 100%;
     height: auto;
     border-radius: 50%;
@@ -616,17 +622,8 @@ body.light-mode .social a {
         background-color: var(--slate-grey);
     }
 
-    #main-nav ul.show {
+    #main-nav.show ul {
         display: flex;
-    }
-
-    #main-nav li {
-        width: 100%;
-    }
-
-    #main-nav a {
-        display: block;
-        padding: 10px 0;
     }
 
     .theme-btn {
